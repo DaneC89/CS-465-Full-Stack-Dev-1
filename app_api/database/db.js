@@ -1,9 +1,16 @@
 const mongoose = require('mongoose');
-let dbURI = 'mongodb://127.0.0.1/travlr';
+const dbURI = 'mongodb://localhost:27017/travlr';
+
 if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGODB_URI;
 }
-mongoose.connect(dbURI);
+
+mongoose.set('useUnifiedTopology', true);
+
+mongoose.connect(dbURI, {
+  useNewUrlParser: true, 
+  useCreateIndex: true,
+});
 
 mongoose.connection.on('connected', () => {
   console.log(`Mongoose connected to ${dbURI}`);
@@ -41,4 +48,4 @@ process.on('SIGTERM', () => {
   });
 });
 
-require("./models/travlr");                                  
+require('./models/travlr');                          

@@ -1,7 +1,7 @@
 const request = require('request');
 const apiOptions = {
     server: 'http://localhost:3000'
-}
+};
 
 /* GET travel view */
 const renderTravelList = (req, res, responseBody) => {
@@ -17,11 +17,13 @@ const renderTravelList = (req, res, responseBody) => {
         }
     }
 
-    res.render('travel', {
-        title: pageTitle,
-        trips: responseBody,
-        message
-    });
+        res.render('travel', 
+        {
+            title: pageTitle,
+            trips: responseBody,
+            message
+        }
+    );
 }
 const travelList = (req, res) => {
     const path = '/api/trips';
