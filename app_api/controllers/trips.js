@@ -86,7 +86,7 @@ const tripsUpdateTrip = async (req, res) => {
                         name: req.body.name,
                         length: req.body.length,
                         start: req.body.start,
-                        resort: req.body.start,
+                        resort: req.body.resort,
                         perPerson: req.body.perPerson,
                         image: req.body.image,
                         description: req.body.description
