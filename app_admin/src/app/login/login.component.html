@@ -1,7 +1,7 @@
 <div class="row" >
   <div class="col-12 col-md-8">
     <h2>Login</h2>
-    <from (ngSubmit)="onLoginSubmit(evt)">
+    <form (ngSubmit)="onLoginSubmit(evt)">
       <div role="alert" *ngIf="formErrors" class="alert alert-danger">{{ formError }}</div>
       <div class="form-group">
         <label for="email">Email Address</label>
@@ -14,6 +14,6 @@
             placeholder="e.g 12+ alphanumerics" [(ngModel)]="credentials.password">
         </div>
         <button type="submit" role="button" class="btn btn-primary">Sign In!</button>
-    </from>
+    </form>
   </div>
 </div>

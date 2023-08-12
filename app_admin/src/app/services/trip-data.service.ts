@@ -33,13 +33,13 @@ export class TripDataService {
         'Authorization': `Bearer ${this.storage.getItem('travlr-token')}`
       })
   };
-  console.log('Inside TripDataService#addTrip');
-  console.log(formData);
-  return this.http
-    .post(this.tripUrl, formData, httpOptions) // added httpOptions
-    .toPromise()
-    .then(response => response as Trip[]) // get rid of .json
-    .catch(this.handleError);
+    console.log('Inside TripDataService#addTrip');
+    console.log(formData);
+    return this.http
+      .post(this.tripUrl, formData, httpOptions) // added httpOptions
+      .toPromise()
+      .then(response => response as Trip[]) // get rid of .json
+      .catch(this.handleError);
 
 }
 
