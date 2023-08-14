@@ -10,9 +10,13 @@ import { BROWSER_STORAGE } from '../storage';
 @Injectable()
 export class TripDataService {
 
+  /*
+  constructor(private http: Http,
+    @Inject(BROWSER_STORAGE) private storage: Storage) { }
+  */ 
+
   constructor(
-    private http: HttpClient,
-    @Inject(BROWSER_STORAGE) private storage: Storage
+    private http: HttpClient, @Inject(BROWSER_STORAGE) private storage: Storage
     ) { }
 
   private apiBaseUrl = 'http://localhost:3000/api/';
@@ -33,13 +37,13 @@ export class TripDataService {
         'Authorization': `Bearer ${this.storage.getItem('travlr-token')}`
       })
   };
-    console.log('Inside TripDataService#addTrip');
-    console.log(formData);
-    return this.http
-      .post(this.tripUrl, formData, httpOptions) // added httpOptions
-      .toPromise()
-      .then(response => response as Trip[]) // get rid of .json
-      .catch(this.handleError);
+  console.log('Inside TripDataService#addTrip');
+  console.log(formData);
+  return this.http
+    .post(this.tripUrl, formData, httpOptions) // added httpOptions
+    .toPromise()
+    .then(response => response as Trip[]) // get rid of .json
+    .catch(this.handleError);
 
 }
 
@@ -82,7 +86,7 @@ export class TripDataService {
   console.log('Inside TripDataService#updateTrip');
   console.log(formData);
   return this.http
-    .post(this.tripUrl + formData.code, formData, httpOptions) // added httpOptions
+    .put(this.tripUrl + formData.code, formData, httpOptions) // added httpOptions
     .toPromise()
     .then(response => response as Trip[]) // get rid of .json
     .catch(this.handleError);

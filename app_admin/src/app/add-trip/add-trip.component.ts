@@ -8,7 +8,6 @@ import { TripDataService } from '../services/trip-data.service';
   templateUrl: './add-trip.component.html',
   styleUrls: ['./add-trip.component.css']
 })
-
 export class AddTripComponent implements OnInit {
 
   addForm: FormGroup;
@@ -36,6 +35,7 @@ export class AddTripComponent implements OnInit {
 
     onSubmit() {
       this.submitted = true;
+      
       if (this.addForm.valid) {
         this.tripService.addTrip(this.addForm.value)
           .then(data => {
